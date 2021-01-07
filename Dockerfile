@@ -11,6 +11,7 @@ RUN wget -c https://github.com/elm/compiler/releases/download/0.19.1/binary-for-
 RUN mkdir -p /tmp/npm/.local
 
 # Install additional Elm tools
-RUN npm config set prefix /tmp/npm/.local && npm install --global --unsafe-perm uglify-js@${UGLIFY_VERSION} elm-test@${ELM_TEST_VERSION}
+RUN npm config set prefix /tmp/npm/.local
+RUN npm install --global --unsafe-perm uglify-js@${UGLIFY_VERSION} elm-test@${ELM_TEST_VERSION}
 
 ENV PATH="/tmp/npm/.local/bin:${PATH}"
